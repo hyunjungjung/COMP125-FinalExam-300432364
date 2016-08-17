@@ -14,8 +14,17 @@ var core;
     "use strict";
     var canvas;
     var stage;
-    var RollButton;
-    var rollButton = new createjs.bitmap("../Assets/images");
+
+    //var dice1 = new createjs.Bitmap("Assets/images/blank.png");
+    //var dice2 = new createjs.Bitmap("Assets/images/blank.png");
+
+    var diceRoll1 = new createjs.Bitmap("Assets/images/1.png");
+    var diceRoll2 = new createjs.Bitmap("Assets/images/2.png");
+    var diceRoll3 = new createjs.Bitmap("Assets/images/3.png");
+    var diceRoll4 = new createjs.Bitmap("Assets/images/4.png");
+    var diceRoll5 = new createjs.Bitmap("Assets/images/5.png");
+    var diceRoll6 = new createjs.Bitmap("Assets/images/6.png");
+
     // app entry function
     function init() {
         canvas = document.getElementById("canvas");
@@ -35,23 +44,29 @@ var core;
 
         stage.update();
     }
-    var imgDice = new Array("images/1.png,", "images/2.png,", "images/3.png,", "images/4.png,", "images/5.png,", "images/6.png,")
 
     function rollButton_clicked() {
-        var randomDice = Math.floor(Math.random() * imgDice.length);
-        document.getElementById("pictures").src = imgDice[randomDice];
+        //var randomDice = Math.floor(Math.random() * 6) + 1;
+        //document.getElementById("pictures").src = imgDice[randomDice];
     }
 
     function main() {
-
+        //dice1 bitmap
+        var dice1 = new createjs.Bitmap("Assets/images/blank.png");
+        dice1.x = 50;
+        dice1.y = 50;
+        stage.addChild(dice1);
+        //dice2 bitmap
+        var dice2 = new createjs.Bitmap("Assets/images/blank.png");
+        dice2.x=400;
+        dice2.y=50;
+        stage.addChild(dice2);
         //button bitmap
-        rollButton = new createjs.Bitmap("../Assets/images/rollButton.png");
-        rollButton.regX = rollButton.getBounds().width * 0.5;
-        rollButton.regY = rollButton.getBounds().height * 0.5;
-        rollButton.x = CANVAS_WIDTH * 0.5;
-        rollButton.y = CANVAS_HEIGHT * 0.5;
+        var rollButton = new createjs.Bitmap(" Assets/images/rollButton.png");
+        rollButton.x = 250;
+        rollButton.y = 400;
         stage.addChild(rollButton);
-        rollButton.on("click", clickMeButton_clicked);
+        rollButton.addEventListener("click", rollButton_clicked);
 
     }
     window.addEventListener("load", init);
