@@ -14,10 +14,6 @@ var core;
     "use strict";
     var canvas;
     var stage;
-
-    //var dice1 = new createjs.Bitmap("Assets/images/blank.png");
-    //var dice2 = new createjs.Bitmap("Assets/images/blank.png");
-
     var diceRoll1 = new createjs.Bitmap("Assets/images/1.png");
     var diceRoll2 = new createjs.Bitmap("Assets/images/2.png");
     var diceRoll3 = new createjs.Bitmap("Assets/images/3.png");
@@ -40,14 +36,16 @@ var core;
      * @method gameLoop
      */
     function gameLoop() {
-
-
         stage.update();
     }
 
     function rollButton_clicked() {
-        //var randomDice = Math.floor(Math.random() * 6) + 1;
-        //document.getElementById("pictures").src = imgDice[randomDice];
+        var randomDice = Math.floor(Math.random() * 6) + 1;
+if (randomDice==1)
+{
+    var diceRoll1 = new createjs.Bitmap("Assets/images/1.png");
+    stage.addChild(diceRoll1);
+}
     }
 
     function main() {
@@ -62,10 +60,11 @@ var core;
         dice2.y=50;
         stage.addChild(dice2);
         //button bitmap
-        var rollButton = new createjs.Bitmap(" Assets/images/rollButton.png");
+        var rollButton = new createjs.Bitmap("Assets/images/rollButton.png");
         rollButton.x = 250;
         rollButton.y = 400;
         stage.addChild(rollButton);
+
         rollButton.addEventListener("click", rollButton_clicked);
 
     }
